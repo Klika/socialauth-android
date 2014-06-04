@@ -99,7 +99,6 @@ import android.widget.PopupWindow;
  * 
  * Secondly, it can be attached to a LinearLayout for creating a Bar with
  * several buttons, one for each social network. Clicking on these icons will
- * open a dialog which will authenticate the user and one the user is
  * authenticated, you can use various methods from the AuthProvider interface to
  * update status, get profile, contacts, user feeds, album feeds and upload
  * images. <br>
@@ -794,7 +793,7 @@ public class SocialAuthAdapter {
 
 		if (providerName != null) {
 
-			if (socialAuthManager.getConnectedProvidersIds().contains(providerName))
+			if (socialAuthManager != null && socialAuthManager.getConnectedProvidersIds().contains(providerName))
 				socialAuthManager.disconnectProvider(providerName);
 
 			Editor edit = PreferenceManager.getDefaultSharedPreferences(appContext).edit();
